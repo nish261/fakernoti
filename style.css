@@ -1,0 +1,468 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ===== CONTROL PANEL ===== */
+.control-panel {
+    width: 350px;
+    background: #2a2a2a;
+    padding: 30px;
+    overflow-y: auto;
+    color: #fff;
+}
+
+.control-panel h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section label {
+    display: block;
+    font-size: 13px;
+    color: #bbb;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #3a3a3a;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: #007aff;
+}
+
+textarea.input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 8px;
+}
+
+.checkbox-label input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #0051d5;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: #3a3a3a;
+    color: #fff;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #4a4a4a;
+    border-color: #5a5a5a;
+}
+
+.btn-remove {
+    padding: 6px 12px;
+    background: #ff3b30;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-remove:hover {
+    background: #d32f2f;
+}
+
+.notification-form {
+    background: #333;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #444;
+}
+
+.notification-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.notification-form-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== PREVIEW PANEL ===== */
+.preview-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    padding: 40px;
+}
+
+/* ===== LOCK SCREEN (iPhone 14 Pro: 390×844) ===== */
+.lock-screen {
+    position: relative;
+    width: 390px;
+    height: 844px;
+    border-radius: 55px; /* Exact Swift: 55px continuous */
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Wallpaper Background */
+.wallpaper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Default gradient from Swift */
+    background: linear-gradient(135deg,
+        rgb(26, 51, 38) 0%,
+        rgb(13, 26, 20) 100%
+    );
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Lock Screen Content */
+.lock-screen-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+/* Lock Icon - Exact Swift positioning */
+.lock-icon {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px; /* Exact Swift: 60px */
+    margin-bottom: 10px; /* Exact Swift: 10px */
+}
+
+.lock-icon svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Date - Exact Swift specs */
+.date {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 22px; /* Exact Swift: 22 */
+    font-weight: 500; /* Exact Swift: medium */
+    color: white;
+    text-align: center;
+    text-transform: uppercase; /* Exact Swift */
+    letter-spacing: 0.5px; /* Exact Swift: tracking 0.5 */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 4px;
+}
+
+/* Time - Exact Swift specs */
+.time {
+    font-family: 'SF Pro Rounded', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 96px; /* Exact Swift: 96 */
+    font-weight: 600; /* Exact Swift: semibold */
+    color: white;
+    text-align: center;
+    letter-spacing: -2px; /* Exact Swift: tracking -2 */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+/* Notifications Container - Exact Swift ScrollView */
+.notification-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 10px 20px 10px; /* Exact Swift: top 8, horizontal 10, bottom 20 */
+}
+
+/* Hide scrollbar */
+.notification-container::-webkit-scrollbar {
+    display: none;
+}
+
+.spacer {
+    flex: 1;
+}
+
+/* Bottom Controls - Exact Figma positioning */
+.bottom-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 46px; /* Exact Figma: 46px horizontal */
+    gap: 57px; /* Exact Figma gap */
+    margin-bottom: 50px; /* Keep some bottom spacing */
+}
+
+/* Circle Button with Blur - Exact Figma specs */
+.control-btn {
+    position: relative;
+    width: 48.4px; /* Exact Figma: 48.4px */
+    height: 48.4px; /* Exact Figma: 48.4px */
+    border-radius: 50%;
+
+    /* Exact Figma background */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(35.2px); /* Exact Figma: 35.2px */
+    -webkit-backdrop-filter: blur(35.2px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Exact Figma text styling for icons */
+    font-family: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19.8px; /* Exact Figma: 19.8px */
+    line-height: 20px;
+    letter-spacing: -4.4px; /* Exact Figma: -4.4px */
+    color: #FFFFFF;
+}
+
+.control-btn svg {
+    display: none; /* Hide SVG, use text icons instead */
+}
+
+/* ===== NOTIFICATIONS (EXACT FIGMA SPECS) ===== */
+
+.notification {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px; /* Exact Figma */
+    gap: 9px; /* Exact Figma */
+
+    width: 100%;
+    max-width: 357px; /* Exact Figma */
+    min-height: 80px; /* Exact Figma */
+    margin: 0 auto 8px auto; /* Exact Swift: spacing 8 */
+
+    /* Exact Figma background */
+    background: rgba(234, 234, 234, 0.7);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+
+    border-radius: 22px; /* Exact Figma */
+}
+
+/* App Icon - Exact Figma specs */
+.app-icon {
+    width: 38px; /* Exact Figma */
+    height: 38px; /* Exact Figma */
+    border-radius: 8px; /* Exact Figma */
+
+    background: rgba(234, 234, 234, 0.7);
+    background-blend-mode: luminosity;
+    opacity: 0.8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.app-icon.profile {
+    border-radius: 50%;
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* iMessage Badge */
+.app-icon .imessage-badge {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-icon .imessage-badge::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: rgb(76, 217, 100);
+    border-radius: 50%;
+}
+
+/* Notification Content - Exact Figma */
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 2px; /* Exact Figma */
+
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+/* App Name - Exact Figma */
+.app-name {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px; /* Exact Figma */
+    line-height: 18px; /* Exact Figma */
+    letter-spacing: -0.408px; /* Exact Figma */
+    text-align: left;
+    color: #111111; /* Exact Figma */
+
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Time - Exact Figma */
+.notif-time {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px; /* Exact Figma */
+    line-height: 18px; /* Exact Figma */
+    letter-spacing: -0.408px; /* Exact Figma */
+    text-align: center;
+    color: #565656; /* Exact Figma */
+
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+/* Message Body - Exact Figma */
+.notification-body {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px; /* Exact Figma */
+    line-height: 18px; /* Exact Figma */
+    color: #111111; /* Exact Figma */
+
+    width: 100%;
+    word-wrap: break-word;
+    margin: 0;
+}

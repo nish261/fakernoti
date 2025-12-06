@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Lock Screen Notification Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h1>iOS Notification Generator</h1>
+            <p class="subtitle">Pixel-perfect iOS notifications</p>
+
+            <div class="section">
+                <h3>Lock Screen</h3>
+                <label>Date</label>
+                <input type="text" id="lockDate" class="input" value="THURSDAY, NOVEMBER 27">
+                <label>Time</label>
+                <input type="text" id="lockTime" class="input" value="13:22">
+                <label>Wallpaper</label>
+                <input type="file" id="wallpaperUpload" accept="image/*" class="input">
+            </div>
+
+            <div class="section">
+                <h3>Notifications</h3>
+                <div id="notificationForms"></div>
+                <button id="addNotificationBtn" class="btn-secondary">+ Add Notification</button>
+            </div>
+
+            <button id="downloadBtn" class="btn-primary">📸 Download Screenshot</button>
+        </div>
+
+        <!-- Preview Panel -->
+        <div class="preview-panel">
+            <!-- iPhone Lock Screen -->
+            <div id="lockScreen" class="lock-screen">
+                <!-- Wallpaper Background -->
+                <div id="wallpaper" class="wallpaper"></div>
+
+                <!-- Lock Screen Content -->
+                <div class="lock-screen-content">
+                    <!-- Lock Icon -->
+                    <div class="lock-icon">
+                        <svg width="20" height="24" viewBox="0 0 20 24" fill="white">
+                            <path d="M10 0C6.685 0 4 2.685 4 6v3H3c-1.105 0-2 .895-2 2v11c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2V11c0-1.105-.895-2-2-2h-1V6c0-3.315-2.685-6-6-6zm0 2c2.206 0 4 1.794 4 4v3H6V6c0-2.206 1.794-4 4-4z"/>
+                        </svg>
+                    </div>
+
+                    <!-- Date -->
+                    <div id="previewDate" class="date">THURSDAY, NOVEMBER 27</div>
+
+                    <!-- Time -->
+                    <div id="previewTime" class="time">13:22</div>
+
+                    <!-- Notifications Area -->
+                    <div id="notificationContainer" class="notification-container"></div>
+
+                    <div class="spacer"></div>
+
+                    <!-- Bottom Controls - Exact Figma specs -->
+                    <div class="bottom-controls">
+                        <div class="control-btn" title="Flashlight">
+                            <span>🔦</span>
+                        </div>
+                        <div class="control-btn" title="Camera">
+                            <span>📷</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
