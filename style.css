@@ -283,7 +283,18 @@ textarea.input {
     flex: 1;
 }
 
-/* Bottom Controls - Exact Figma positioning */
+/* Bottom Actions Container - Exact Figma specs */
+.bottom-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 100%; /* Figma: 440px but we'll center it */
+    height: 100px; /* Exact Figma */
+    flex: none;
+}
+
+/* Buttons Row - Exact Figma positioning */
 .bottom-controls {
     display: flex;
     flex-direction: row;
@@ -291,37 +302,58 @@ textarea.input {
     align-items: center;
     padding: 0 46px; /* Exact Figma: 46px horizontal */
     gap: 57px; /* Exact Figma gap */
-    margin-bottom: 50px; /* Keep some bottom spacing */
+    width: 100%;
+    height: 48.4px; /* Exact Figma */
+    flex: none;
 }
 
 /* Circle Button with Blur - Exact Figma specs */
 .control-btn {
-    position: relative;
-    width: 48.4px; /* Exact Figma: 48.4px */
-    height: 48.4px; /* Exact Figma: 48.4px */
-    border-radius: 50%;
-
-    /* Exact Figma background */
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(35.2px); /* Exact Figma: 35.2px */
-    -webkit-backdrop-filter: blur(35.2px);
-
+    width: 48.4px; /* Exact Figma */
+    height: 48.4px; /* Exact Figma */
+    flex: none;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* Exact Figma text styling for icons */
-    font-family: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 19.8px; /* Exact Figma: 19.8px */
-    line-height: 20px;
-    letter-spacing: -4.4px; /* Exact Figma: -4.4px */
-    color: #FFFFFF;
 }
 
 .control-btn svg {
-    display: none; /* Hide SVG, use text icons instead */
+    width: 49px;
+    height: 49px;
+}
+
+/* Focus Mode Indicator - Exact Figma specs */
+.focus-mode {
+    margin: 0 auto;
+    width: 73px; /* Exact Figma */
+    height: 18px; /* Exact Figma */
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus-mode svg {
+    width: 73px;
+    height: 18px;
+}
+
+/* Pull Indicator - Exact Figma specs */
+.pull-indicator {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px 10px; /* Exact Figma */
+    gap: 10px;
+    width: 100%;
+    height: 51.6px; /* Exact Figma */
+    flex: none;
+}
+
+.pull-indicator svg {
+    width: 134px; /* Exact Figma */
+    height: 6px; /* Exact Figma */
 }
 
 /* ===== NOTIFICATIONS (EXACT FIGMA SPECS) ===== */

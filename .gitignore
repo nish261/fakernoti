@@ -49,3 +49,7 @@ dist/
 build/
 *.zip
 *.tar.gz
+
+# Reference folders (other git repos)
+reference/
+swift-assets/
