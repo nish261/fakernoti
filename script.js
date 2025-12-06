@@ -1,6 +1,7 @@
 // DOM Elements
 const lockDate = document.getElementById('lockDate');
 const lockTime = document.getElementById('lockTime');
+const clockFont = document.getElementById('clockFont');
 const wallpaperUpload = document.getElementById('wallpaperUpload');
 const notificationForms = document.getElementById('notificationForms');
 const addNotificationBtn = document.getElementById('addNotificationBtn');
@@ -172,6 +173,14 @@ lockDate.addEventListener('input', () => {
 
 lockTime.addEventListener('input', () => {
     previewTime.textContent = lockTime.value;
+});
+
+// Update clock font
+clockFont.addEventListener('change', () => {
+    previewTime.className = 'time';
+    if (clockFont.value !== 'default') {
+        previewTime.classList.add(clockFont.value);
+    }
 });
 
 // Handle wallpaper upload
