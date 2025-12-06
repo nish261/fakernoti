@@ -191,10 +191,11 @@ textarea.input {
     align-items: center;
     justify-content: center;
     background: #0a0a0a;
-    padding: 40px;
+    padding: 20px;
+    overflow: auto;
 }
 
-/* ===== LOCK SCREEN (iPhone 14 Pro: 390×844) ===== */
+/* ===== LOCK SCREEN (iPhone 15: 390×844) ===== */
 .lock-screen {
     position: relative;
     width: 390px;
@@ -202,6 +203,42 @@ textarea.input {
     border-radius: 55px; /* Exact Swift: 55px continuous */
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+    /* Scale to fit viewport */
+    max-width: calc(100vw - 370px - 40px); /* Account for control panel + padding */
+    max-height: calc(100vh - 40px);
+    transform-origin: center;
+}
+
+/* Responsive scaling for different viewport heights */
+@media (max-height: 920px) {
+    .lock-screen {
+        transform: scale(0.95);
+    }
+}
+
+@media (max-height: 880px) {
+    .lock-screen {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-height: 820px) {
+    .lock-screen {
+        transform: scale(0.85);
+    }
+}
+
+@media (max-height: 760px) {
+    .lock-screen {
+        transform: scale(0.75);
+    }
+}
+
+@media (max-height: 700px) {
+    .lock-screen {
+        transform: scale(0.65);
+    }
 }
 
 /* Wallpaper Background */
