@@ -237,12 +237,14 @@ textarea.input {
     position: relative;
     width: 375px;
     height: 812px;
-    border-radius: 55px; /* Exact Swift: 55px continuous */
+    border-radius: 55px;
+    /* Exact Swift: 55px continuous */
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 
     /* Scale to fit viewport */
-    max-width: calc(100vw - 370px - 40px); /* Account for control panel + padding */
+    max-width: calc(100vw - 370px - 40px);
+    /* Account for control panel + padding */
     max-height: calc(100vh - 40px);
     transform-origin: center;
 }
@@ -288,9 +290,8 @@ textarea.input {
 
     /* Default gradient from Swift */
     background: linear-gradient(135deg,
-        rgb(26, 51, 38) 0%,
-        rgb(13, 26, 20) 100%
-    );
+            rgb(26, 51, 38) 0%,
+            rgb(13, 26, 20) 100%);
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -306,184 +307,278 @@ textarea.input {
     z-index: 10;
 }
 
-/* Status Bar - Top Left */
+/* Status Bar - Full iOS Style */
 .status-bar {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 15px 20px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 26px 0 26px;
     z-index: 100;
+    color: white;
 }
 
-.status-bar svg {
-    width: 91px;
-    height: 44px;
+.status-bar-left {
+    display: flex;
+    align-items: center;
+}
+
+.status-time {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.status-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.signal-icon,
+.wifi-icon {
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
 }
 
-/* Lock Icon - Exact Swift positioning */
-.lock-icon {
+.fiveg-icon {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+    margin-left: 2px;
+}
+
+.battery-icon {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+    margin-left: 2px;
+}
+
+.battery-percent {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    margin-left: 3px;
+}
+
+/* Date & Time Section (iOS 16/17 Style) */
+.datetime-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    /* Adjusted to account for status bar */
+    width: 100%;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+
+.lock-icon-small {
+    margin-top: 8px;
+    margin-bottom: 0;
+    opacity: 0.8;
     display: flex;
     justify-content: center;
-    padding-top: 60px; /* Exact Swift: 60px */
-    margin-bottom: 10px; /* Exact Swift: 10px */
 }
 
-.lock-icon svg {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+.lock-icon-small svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
-/* Date - Exact Swift specs */
-.date {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 22px; /* Exact Swift: 22 */
-    font-weight: 500; /* Exact Swift: medium */
-    color: white;
-    text-align: center;
-    text-transform: uppercase; /* Exact Swift */
-    letter-spacing: 0.5px; /* Exact Swift: tracking 0.5 */
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    margin-bottom: 4px;
-}
-
-/* Time - Exact Swift specs */
-.time {
-    font-family: 'SF Pro Rounded', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 96px; /* Exact Swift: 96 */
-    font-weight: 600; /* Exact Swift: semibold */
-    color: white;
-    text-align: center;
-    letter-spacing: -2px; /* Exact Swift: tracking -2 */
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    line-height: 1;
+.date-modern {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
     margin-bottom: 8px;
+    opacity: 0.9;
+    letter-spacing: 0.2px;
+}
+
+.time-modern {
+    font-family: 'SF Pro Rounded', sans-serif;
+    font-size: 90px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin: 0;
+    text-align: center;
 }
 
 /* Clock Font Variations */
-.time.ny-heavy {
+.time-modern.ny-heavy {
     font-family: 'New York Heavy', serif;
     font-weight: 900;
     letter-spacing: -3px;
 }
 
-.time.ny-semibold {
+.time-modern.ny-semibold {
     font-family: 'New York Semibold', serif;
     font-weight: 600;
     letter-spacing: -2px;
 }
 
-.time.sf-rounded {
+.time-modern.sf-rounded {
     font-family: 'SF Pro Rounded', sans-serif;
     font-weight: 600;
     letter-spacing: -2px;
 }
 
-.time.sf-rails {
+.time-modern.sf-rails {
     font-family: 'SF Pro Rails', sans-serif;
     font-weight: 600;
     letter-spacing: -2px;
 }
 
-.time.sf-soft {
+.time-modern.sf-soft {
     font-family: 'SF Pro Soft', sans-serif;
     font-weight: 600;
     letter-spacing: -2px;
 }
 
-.time.sf-stencil {
+.time-modern.sf-stencil {
     font-family: 'SF Pro Stencil', sans-serif;
     font-weight: 600;
     letter-spacing: -1px;
 }
 
-/* Notifications Container - Exact Swift ScrollView */
-.notification-container {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 8px 10px 20px 10px; /* Exact Swift: top 8, horizontal 10, bottom 20 */
+/* Weather Widget */
+.weather-widget {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 14px;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Hide scrollbar */
-.notification-container::-webkit-scrollbar {
+.weather-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.weather-clock svg {
+    width: 29px;
+    height: 29px;
+}
+
+.weather-clock-time {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #D7EBC1;
+    letter-spacing: -0.2px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.weather-condition {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #D7EBC1;
+    letter-spacing: -0.2px;
+}
+
+.weather-temp {
+    display: flex;
+    gap: 8px;
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #D7EBC1;
+    opacity: 0.7;
+}
+
+.temp-high,
+.temp-low {
+    letter-spacing: -0.2px;
+}
+
+/* Notification Container Modern */
+.notification-container-modern {
+    flex: 1;
+    width: 100%;
+    padding: 20px 8px 20px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Fade mask at top */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%);
+}
+
+.notification-container-modern::-webkit-scrollbar {
     display: none;
 }
 
 .spacer {
     flex: 1;
+    min-height: 20px;
 }
 
-/* Bottom Actions Container - Exact Figma specs */
-.bottom-actions {
+/* Bottom Controls Modern */
+.bottom-controls-modern {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    width: 100%; /* Figma: 440px but we'll center it */
-    height: 100px; /* Exact Figma */
-    flex: none;
-}
-
-/* Buttons Row - Exact Figma positioning */
-.bottom-controls {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 46px; /* Exact Figma: 46px horizontal */
-    gap: 57px; /* Exact Figma gap */
     width: 100%;
-    height: 48.4px; /* Exact Figma */
-    flex: none;
+    padding: 0 46px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
-/* Circle Button with Blur - Exact Figma specs */
-.control-btn {
-    width: 48.4px; /* Exact Figma */
-    height: 48.4px; /* Exact Figma */
-    flex: none;
+.control-btn-modern {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.2s;
 }
 
-.control-btn svg {
-    width: 49px;
-    height: 49px;
+.control-btn-modern:active {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Focus Mode Indicator - Exact Figma specs */
-.focus-mode {
-    margin: 0 auto;
-    width: 73px; /* Exact Figma */
-    height: 18px; /* Exact Figma */
-    flex: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.control-btn-modern svg {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
-.focus-mode svg {
-    width: 73px;
-    height: 18px;
-}
-
-/* Pull Indicator - Exact Figma specs */
-.pull-indicator {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 6px 10px; /* Exact Figma */
-    gap: 10px;
-    width: 100%;
-    height: 51.6px; /* Exact Figma */
-    flex: none;
-}
-
-.pull-indicator svg {
-    width: 134px; /* Exact Figma */
-    height: 6px; /* Exact Figma */
+/* Home Indicator */
+.home-indicator {
+    width: 134px;
+    height: 5px;
+    background: white;
+    border-radius: 100px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== NOTIFICATIONS (EXACT FIGMA SPECS) ===== */
@@ -493,13 +588,18 @@ textarea.input {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px; /* Exact Figma */
-    gap: 9px; /* Exact Figma */
+    padding: 12px;
+    /* Exact Figma */
+    gap: 9px;
+    /* Exact Figma */
 
     width: 100%;
-    max-width: 357px; /* Exact Figma */
-    min-height: 80px; /* Exact Figma */
-    margin: 0 auto 8px auto; /* Exact Swift: spacing 8 */
+    max-width: 357px;
+    /* Exact Figma */
+    min-height: 80px;
+    /* Exact Figma */
+    margin: 0 auto 8px auto;
+    /* Exact Swift: spacing 8 */
 
     /* Exact Figma background */
     background: rgba(234, 234, 234, 0.7);
@@ -507,14 +607,18 @@ textarea.input {
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
 
-    border-radius: 22px; /* Exact Figma */
+    border-radius: 22px;
+    /* Exact Figma */
 }
 
 /* App Icon - Exact Figma specs */
 .app-icon {
-    width: 38px; /* Exact Figma */
-    height: 38px; /* Exact Figma */
-    border-radius: 8px; /* Exact Figma */
+    width: 38px;
+    /* Exact Figma */
+    height: 38px;
+    /* Exact Figma */
+    border-radius: 8px;
+    /* Exact Figma */
 
     background: rgba(234, 234, 234, 0.7);
     background-blend-mode: luminosity;
@@ -568,7 +672,8 @@ textarea.input {
     justify-content: center;
     align-items: flex-start;
     padding: 0;
-    gap: 2px; /* Exact Figma */
+    gap: 2px;
+    /* Exact Figma */
 
     flex: 1;
     min-width: 0;
@@ -588,11 +693,15 @@ textarea.input {
     font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px; /* Exact Figma */
-    line-height: 18px; /* Exact Figma */
-    letter-spacing: -0.408px; /* Exact Figma */
+    font-size: 16px;
+    /* Exact Figma */
+    line-height: 18px;
+    /* Exact Figma */
+    letter-spacing: -0.408px;
+    /* Exact Figma */
     text-align: left;
-    color: #111111; /* Exact Figma */
+    color: #111111;
+    /* Exact Figma */
 
     flex: 1;
     min-width: 0;
@@ -604,11 +713,15 @@ textarea.input {
     font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px; /* Exact Figma */
-    line-height: 18px; /* Exact Figma */
-    letter-spacing: -0.408px; /* Exact Figma */
+    font-size: 12px;
+    /* Exact Figma */
+    line-height: 18px;
+    /* Exact Figma */
+    letter-spacing: -0.408px;
+    /* Exact Figma */
     text-align: center;
-    color: #565656; /* Exact Figma */
+    color: #565656;
+    /* Exact Figma */
 
     white-space: nowrap;
     flex-shrink: 0;
@@ -620,11 +733,51 @@ textarea.input {
     font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px; /* Exact Figma */
-    line-height: 18px; /* Exact Figma */
-    color: #111111; /* Exact Figma */
+    font-size: 14px;
+    /* Exact Figma */
+    line-height: 18px;
+    /* Exact Figma */
+    color: #111111;
+    /* Exact Figma */
 
     width: 100%;
     word-wrap: break-word;
     margin: 0;
+}
+
+/* ===== STACKING NOTIFICATION STYLE (iOS 16+) ===== */
+.notification-container-modern.stacking .notification {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.notification-container-modern.stacking .notification:not(:last-child) {
+    margin-bottom: -60px;
+    /* Stack notifications */
+    transform-origin: bottom center;
+}
+
+.notification-container-modern.stacking .notification:nth-last-child(2) {
+    transform: scale(0.96) translateY(-4px);
+    opacity: 0.8;
+    filter: brightness(0.95);
+}
+
+.notification-container-modern.stacking .notification:nth-last-child(3) {
+    transform: scale(0.92) translateY(-8px);
+    opacity: 0.6;
+    filter: brightness(0.9);
+}
+
+.notification-container-modern.stacking .notification:nth-last-child(n+4) {
+    transform: scale(0.88) translateY(-12px);
+    opacity: 0.4;
+    filter: brightness(0.85);
+}
+
+/* Normal notification style (iOS 15) - default behavior */
+.notification-container-modern.normal .notification {
+    margin-bottom: 8px;
+    transform: none;
+    opacity: 1;
 }

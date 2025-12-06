@@ -6,12 +6,14 @@ const wallpaperUpload = document.getElementById('wallpaperUpload');
 const notificationForms = document.getElementById('notificationForms');
 const addNotificationBtn = document.getElementById('addNotificationBtn');
 const downloadBtn = document.getElementById('downloadBtn');
+const notificationStyle = document.getElementById('notificationStyle');
 
 // Preview elements
 const lockScreen = document.getElementById('lockScreen');
 const wallpaper = document.getElementById('wallpaper');
 const previewDate = document.getElementById('previewDate');
 const previewTime = document.getElementById('previewTime');
+const statusTime = document.getElementById('statusTime');
 const notificationContainer = document.getElementById('notificationContainer');
 
 // State
@@ -32,8 +34,27 @@ class Notification {
     }
 }
 
+// Update status bar time to current time
+function updateStatusTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    statusTime.textContent = `${hours}:${minutes}`;
+}
+
 // Initialize with 2 default notifications (like in the screenshot)
 function init() {
+    // Set iOS 16 style defaults
+    lockDate.value = "Wednesday 7 September";
+    lockTime.value = "12:57";
+    previewDate.textContent = lockDate.value;
+    previewTime.textContent = lockTime.value;
+
+    // Update status bar time
+    updateStatusTime();
+    // Update every minute
+    setInterval(updateStatusTime, 60000);
+
     const notif1 = new Notification(notificationIdCounter++);
     notif1.appName = 'Hubby ❤️ 🫧😩';
     notif1.message = 'I love you so much my love. Not a day goes by where I don\'t think about spending the rest of my days with you or missing seeing your wonderful face especially when you smile and blush it\'s honestly the most wonderful thing in the world 😘';
@@ -158,7 +179,7 @@ function handleIconUpload(e) {
 
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
             notif.iconUrl = event.target.result;
             updatePreview();
         };
@@ -177,7 +198,7 @@ lockTime.addEventListener('input', () => {
 
 // Update clock font
 clockFont.addEventListener('change', () => {
-    previewTime.className = 'time';
+    previewTime.className = 'time-modern';
     if (clockFont.value !== 'default') {
         previewTime.classList.add(clockFont.value);
     }
@@ -188,13 +209,29 @@ wallpaperUpload.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
             wallpaperUrl = event.target.result;
             wallpaper.style.backgroundImage = `url(${wallpaperUrl})`;
         };
         reader.readAsDataURL(file);
     }
 });
+
+// Handle notification style change
+notificationStyle.addEventListener('change', () => {
+    updateNotificationStyle();
+});
+
+// Update notification style
+function updateNotificationStyle() {
+    const style = notificationStyle.value;
+    notificationContainer.className = 'notification-container-modern';
+    if (style === 'stacking') {
+        notificationContainer.classList.add('stacking');
+    } else {
+        notificationContainer.classList.add('normal');
+    }
+}
 
 // Update preview
 function updatePreview() {
@@ -255,3 +292,4 @@ downloadBtn.addEventListener('click', () => {
 init();
 previewDate.textContent = lockDate.value;
 previewTime.textContent = lockTime.value;
+updateNotificationStyle(); // Set initial notification style
