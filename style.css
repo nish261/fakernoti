@@ -1,8 +1,45 @@
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
-@import url('https://fonts.cdnfonts.com/css/digital-7-mono');
-@import url('https://fonts.cdnfonts.com/css/seven-segment');
-@import url('https://fonts.cdnfonts.com/css/alarm-clock');
-@import url('https://fonts.cdnfonts.com/css/lcd');
+/* Local Font Faces */
+@font-face {
+    font-family: 'New York Heavy';
+    src: url('fonts/New York - Heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'New York Semibold';
+    src: url('fonts/New York - Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url('fonts/SF Pro - Semibold Rounded.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Rails';
+    src: url('fonts/SF Pro - Semibold Rails.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Soft';
+    src: url('fonts/SF Pro - Semibold Soft.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Stencil';
+    src: url('fonts/SF Pro - Semibold Stencil.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
 
 * {
     margin: 0;
@@ -308,28 +345,40 @@ textarea.input {
 }
 
 /* Clock Font Variations */
-.time.digital {
-    font-family: 'Digital-7 Mono', 'Digital-7', monospace;
-    font-weight: 400;
-    letter-spacing: 4px;
+.time.ny-heavy {
+    font-family: 'New York Heavy', serif;
+    font-weight: 900;
+    letter-spacing: -3px;
 }
 
-.time.segment {
-    font-family: 'Seven Segment', monospace;
-    font-weight: 400;
-    letter-spacing: 8px;
+.time.ny-semibold {
+    font-family: 'New York Semibold', serif;
+    font-weight: 600;
+    letter-spacing: -2px;
 }
 
-.time.lcd {
-    font-family: 'LCD', monospace;
-    font-weight: 400;
-    letter-spacing: 2px;
+.time.sf-rounded {
+    font-family: 'SF Pro Rounded', sans-serif;
+    font-weight: 600;
+    letter-spacing: -2px;
 }
 
-.time.alarm {
-    font-family: 'Alarm Clock', monospace;
-    font-weight: 400;
-    letter-spacing: 0;
+.time.sf-rails {
+    font-family: 'SF Pro Rails', sans-serif;
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+
+.time.sf-soft {
+    font-family: 'SF Pro Soft', sans-serif;
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+
+.time.sf-stencil {
+    font-family: 'SF Pro Stencil', sans-serif;
+    font-weight: 600;
+    letter-spacing: -1px;
 }
 
 /* Notifications Container - Exact Swift ScrollView */
